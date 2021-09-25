@@ -1,8 +1,8 @@
 #include <FastLED.h>
-
+// thanks for FASTLED API
 #define NUM_STRIPS 7
 #define NUM_LEDS_PER_STRIP 105
-#define funk 1
+#define funk 1 // jump in switch ever in first case
 bool gReverseDirection = false;
 CRGB leds[NUM_STRIPS][NUM_LEDS_PER_STRIP];
 const byte LED_PIN[NUM_STRIPS];
@@ -47,10 +47,10 @@ FastLED.setBrightness( MAX_BRIGHTNESS );
 
 void loop() {
     random16_add_entropy( random());
-   int mappedValue0 = map(analogRead(brightnessInPin), 0, 1023, MIN_BRIGHTNESS, MAX_BRIGHTNESS);
+   int mappedValue0 = map(analogRead(brightnessInPin), 0, 1023, MIN_BRIGHTNESS, MAX_BRIGHTNESS); //brightness from all leds
      FastLED.setBrightness(mappedValue0);
-    int mappedValue1 = map(analogRead(highInPin), 0, 1023, MIN_high, MAX_high);
-    int mappedValue2 = map(analogRead(colourInPin), 0, 1023, MIN_color, MAX_color); 
+    int mappedValue1 = map(analogRead(highInPin), 0, 1023, MIN_high, MAX_high); // high of fire up
+    int mappedValue2 = map(analogRead(colourInPin), 0, 1023, MIN_color, MAX_color); // high of fire down
   switch (funk){
 case 1:
   Fire(0,mappedValue2,mappedValue1); //stripe nr , cooling, sparking
@@ -62,13 +62,13 @@ case 1:
   Fire(6,mappedValue2,mappedValue1);
   FastLED.show();
 break;
-  case 2:
+  case 2:      // all leds full power
          for( int x = 0; x < NUM_STRIPS; x++) {
         fill_solid( leds[x], NUM_LEDS_PER_STRIP, CRGB(mappedValue1+155,mappedValue2+55,100));
         }
           FastLED.show();
 break;
-  case 3:
+  case 3: // pacifica test
   for( int x = 0; x < NUM_STRIPS; x++) {
             pacifica_loop(x);
   }
