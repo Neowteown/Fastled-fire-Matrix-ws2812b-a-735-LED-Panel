@@ -1,7 +1,7 @@
 
 
 # Fastled-fire-Matrix-ws2812b-a-735-LED-Panel
-Acryl Panel LED ws2812b Led Stripes in Aluminium Frame on Aluminium Sheet - Working with Arduino Mega a 7 Pipes Parallel
+Acryl panel LED ws2812b Led stripes in Aluminium frame on Aluminium sheet - Working with Arduino Mega a 7 pipes parallel
 
 VIDEO:
 
